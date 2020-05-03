@@ -14,7 +14,7 @@ class App extends React.Component {
                     <BrowserRouter>
                         <div>
                             <Header />
-                            <Route path="/fitness2/" exact component={Menu} />
+                            <Route path="/" exact component={Menu} />
                             <Route path="/nutrition" exact component={Nutrition} />
                             <Route path="/exercise" exact component={Exercise} />
                             <Route path="/tracking" exact component={Tracking} />
