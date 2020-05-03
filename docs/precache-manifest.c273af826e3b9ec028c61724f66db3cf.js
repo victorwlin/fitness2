@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5959d8710a024a14dc1eeae2fe41979e",
+    "revision": "cb6897a2e2abada2843b22d38ebe275f",
     "url": "/fitness2/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fitness2/static/js/2.317b9a36.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5ae8df7729d7fdb3c164",
-    "url": "/fitness2/static/js/main.1597f21d.chunk.js"
+    "revision": "78ca366cdb48392c6d26",
+    "url": "/fitness2/static/js/main.dc531751.chunk.js"
   },
   {
     "revision": "49258b9ea44428482c45",
