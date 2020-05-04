@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 
+import FirebaseConfig from "./FirebaseConfig";
 import Header from "./Header";
 import Menu from "./Menu";
 import Nutrition from "./Nutrition/Nutrition";
@@ -13,6 +14,7 @@ class App extends React.Component {
                 <div className="ui container" style={{ marginTop: "10px" }}>
                     <BrowserRouter>
                         <div>
+                            <FirebaseConfig />
                             <Header />
                             <Route path="/" exact component={Menu} />
                             <Route path="/nutrition" exact component={Nutrition} />

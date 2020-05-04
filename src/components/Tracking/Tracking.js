@@ -9,6 +9,7 @@ class Tracking extends React.Component {
     state = { entries: [] };
     
     onEntrySubmit = entry => {
+        // Check to see if this date already has a weight entry
         let doesDateHaveEntry = 0;
         for (let i = 0; i < this.state.entries.length; i++) {
             if (entry.date === this.state.entries[i].date) {
@@ -16,6 +17,8 @@ class Tracking extends React.Component {
             }
         }
 
+        // If it does, replace the weight for just that date, otherwise
+        // Take the entire entry including the date, and add to state
         if (doesDateHaveEntry) {
             this.setState(prevState => {
                 return {

@@ -4,6 +4,7 @@ class GoogleAuth extends React.Component {
     state = { isSignedIn: null };
     
     componentDidMount() {
+        // Initialize and store GoogleAuth object into this.auth
         window.gapi.load("client:auth2", () => {
             window.gapi.client.init({
                 clientId: "426043248859-bpecvm4ik42gvknks71snhbqagp05kb9.apps.googleusercontent.com",
@@ -12,12 +13,16 @@ class GoogleAuth extends React.Component {
                 this.auth = window.gapi.auth2.getAuthInstance();
                 this.setState({ isSignedIn: this.auth.isSignedIn.get() });
                 this.auth.isSignedIn.listen(this.onAuthChange);
+
+                window.GoogleUser = this.auth.currentUser.get();
             });
         });
     }
     
     onAuthChange = () => {
         this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+
+        window.GoogleUser = this.auth.currentUser.get();
     };
 
     onSignIn = () => {

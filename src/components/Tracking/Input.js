@@ -4,9 +4,12 @@ class Input extends React.Component {
     // I am initializing state with a object, because I want the dates
     // and weights to be locked together.
     state = { entry: { date: "", weight: "" } };
-
-    // Calculate today's date and set to default in the form
+    
     componentDidMount = () => {
+        // Jam firebase into a variable
+        this.db = window.firebase.firestore();
+        
+        // Calculate today's date and set to default in the form
         const date = new Date();
         const today = date.toISOString().substring(0, 10);
         
@@ -33,9 +36,17 @@ class Input extends React.Component {
         // submitted
         event.preventDefault();
         
-        // Check if date field is empty
+        // Check if there is a date and submit to Tracking.js
         if (this.state.entry.date) {
             this.props.onSubmit({...this.state.entry});
+
+            // Submit to firestore
+            let user = window.GoogleUser.getBasicProfile().yu;
+            this.db.collection(user).doc(this.state.entry.date).set({
+                weight: this.state.entry.weight
+            })
+
+            // Reset form fields to empty
             this.setState({ entry: { date: "", weight: "" } });
         } else {
             window.alert("Please enter a date");
